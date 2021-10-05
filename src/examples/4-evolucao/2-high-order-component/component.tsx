@@ -8,6 +8,10 @@ interface State {
 type TodoListProps = WithListManagerProps<string>;
 
 class TodoList extends React.Component<TodoListProps, State> {
+  state = {
+    input: "",
+  };
+
   componentDidUpdate(prevProps: TodoListProps) {
     if (prevProps.list.data.length !== this.props.list.data.length) {
       this.setState({ input: "" });

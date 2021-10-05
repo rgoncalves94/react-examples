@@ -14,6 +14,12 @@ class TodoList extends React.Component<{}, State> {
     };
   }
 
+  componentDidUpdate(_: {}, prevState: State) {
+    if (prevState.tasks.length !== this.state.tasks.length) {
+      this.setState({ input: "" });
+    }
+  }
+
   /**
    *  Adiciona um item no final do vetor de tarefas
    * @param task
